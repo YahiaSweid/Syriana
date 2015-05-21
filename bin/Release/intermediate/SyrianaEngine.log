@@ -1,0 +1,32 @@
+﻿Build started 2015/05/22 2:17:12 AM.
+     1>Project "e:\FYP\Syriana\SyrianaEngine\SyrianaEngine.vcxproj" on node 2 (Build target(s)).
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /Zi /nologo /W3 /WX- /sdl /O2 /Ob2 /Oi /Ot /Oy- /GL /D _CRT_SECURE_NO_WARNINGS /D _MBCS /Gm- /EHsc /MD /GS /Gy /arch:SSE2 /fp:fast /Zc:wchar_t /Zc:forScope /Fo"e:\FYP\Syriana\bin\Release\intermediate\\" /Fd"e:\FYP\Syriana\bin\Release\intermediate\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt main.cpp src\graphics\renderer2d.cpp src\graphics\sprite.cpp
+         main.cpp
+     1>main.cpp(26): warning C4244: 'argument' : conversion from 'time_t' to 'unsigned int', possible loss of data
+     1>main.cpp(38): warning C4244: 'argument' : conversion from 'int' to 'const float', possible loss of data
+     1>main.cpp(56): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+     1>main.cpp(62): warning C4018: '<' : signed/unsigned mismatch
+         renderer2d.cpp
+         sprite.cpp
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"e:\FYP\Syriana\bin\Release\SyrianaEngine.exe" /NOLOGO opengl32.lib glew32.lib glfw3.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"e:\FYP\Syriana\bin\Release\SyrianaEngine.pdb" /OPT:REF /OPT:ICF /LTCG /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"e:\FYP\Syriana\bin\Release\SyrianaEngine.lib" /MACHINE:X86 /SAFESEH e:\FYP\Syriana\bin\Release\intermediate\main.obj
+         e:\FYP\Syriana\bin\Release\intermediate\renderer2d.obj
+         e:\FYP\Syriana\bin\Release\intermediate\shader.obj
+         e:\FYP\Syriana\bin\Release\intermediate\sprite.obj
+         e:\FYP\Syriana\bin\Release\intermediate\window.obj
+         e:\FYP\Syriana\bin\Release\intermediate\keyboard.obj
+         e:\FYP\Syriana\bin\Release\intermediate\mouse.obj
+         e:\FYP\Syriana\bin\Release\intermediate\matrix4.obj
+         e:\FYP\Syriana\bin\Release\intermediate\vector2.obj
+         e:\FYP\Syriana\bin\Release\intermediate\vector3.obj
+         e:\FYP\Syriana\bin\Release\intermediate\vector4.obj
+         e:\FYP\Syriana\bin\Release\intermediate\file.obj
+         Generating code
+         Finished generating code
+         SyrianaEngine.vcxproj -> e:\FYP\Syriana\bin\Release\SyrianaEngine.exe
+     1>Done Building Project "e:\FYP\Syriana\SyrianaEngine\SyrianaEngine.vcxproj" (Build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:02.62

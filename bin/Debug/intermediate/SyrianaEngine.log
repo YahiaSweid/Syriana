@@ -1,0 +1,31 @@
+﻿Build started 2015/05/22 12:39:21 AM.
+     1>Project "e:\FYP\Syriana\SyrianaEngine\SyrianaEngine.vcxproj" on node 2 (Build target(s)).
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D _CRT_SECURE_NO_WARNINGS /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"e:\FYP\Syriana\bin\Debug\intermediate\\" /Fd"e:\FYP\Syriana\bin\Debug\intermediate\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt main.cpp src\graphics\renderer2d.cpp src\graphics\shader.cpp src\graphics\sprite.cpp src\maths\matrix4.cpp src\maths\vector3.cpp
+         vector3.cpp
+         Generating Code...
+         Skipping... (no relevant changes detected)
+         matrix4.cpp
+         sprite.cpp
+         shader.cpp
+         renderer2d.cpp
+         main.cpp
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"e:\FYP\Syriana\bin\Debug\SyrianaEngine.exe" /INCREMENTAL /NOLOGO opengl32.lib glew32.lib glfw3.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"e:\FYP\Syriana\bin\Debug\SyrianaEngine.pdb" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"e:\FYP\Syriana\bin\Debug\SyrianaEngine.lib" /MACHINE:X86 e:\FYP\Syriana\bin\Debug\intermediate\main.obj
+         e:\FYP\Syriana\bin\Debug\intermediate\renderer2d.obj
+         e:\FYP\Syriana\bin\Debug\intermediate\shader.obj
+         e:\FYP\Syriana\bin\Debug\intermediate\sprite.obj
+         e:\FYP\Syriana\bin\Debug\intermediate\window.obj
+         e:\FYP\Syriana\bin\Debug\intermediate\keyboard.obj
+         e:\FYP\Syriana\bin\Debug\intermediate\mouse.obj
+         e:\FYP\Syriana\bin\Debug\intermediate\matrix4.obj
+         e:\FYP\Syriana\bin\Debug\intermediate\vector2.obj
+         e:\FYP\Syriana\bin\Debug\intermediate\vector3.obj
+         e:\FYP\Syriana\bin\Debug\intermediate\vector4.obj
+         e:\FYP\Syriana\bin\Debug\intermediate\file.obj
+         SyrianaEngine.vcxproj -> e:\FYP\Syriana\bin\Debug\SyrianaEngine.exe
+     1>Done Building Project "e:\FYP\Syriana\SyrianaEngine\SyrianaEngine.vcxproj" (Build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:01.98
