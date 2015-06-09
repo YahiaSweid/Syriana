@@ -41,14 +41,14 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <OutDir>$(SolutionDir)bin\$(Configuration)\</OutDir>
     <IntDir>$(SolutionDir)bin\$(Configuration)\intermediate\</IntDir>
-    <IncludePath>$(SolutionDir)dependencies\glew\include\;$(SolutionDir)dependencies\glfw\include\;$(IncludePath)</IncludePath>
-    <LibraryPath>$(SolutionDir)dependencies\glew\lib\;$(SolutionDir)dependencies\glfw\lib\;$(LibraryPath)</LibraryPath>
+    <IncludePath>$(SolutionDir)dependencies\devil\include\;$(SolutionDir)dependencies\glew\include\;$(SolutionDir)dependencies\glfw\include\;$(IncludePath)</IncludePath>
+    <LibraryPath>$(SolutionDir)dependencies\devil\lib\;$(SolutionDir)dependencies\glew\lib\;$(SolutionDir)dependencies\glfw\lib\;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <IncludePath>$(SolutionDir)dependencies\glew\include\;$(SolutionDir)dependencies\glfw\include\;$(IncludePath)</IncludePath>
+    <IncludePath>$(SolutionDir)dependencies\devil\include\;$(SolutionDir)dependencies\glew\include\;$(SolutionDir)dependencies\glfw\include\;$(IncludePath)</IncludePath>
     <OutDir>$(SolutionDir)bin\$(Configuration)\</OutDir>
     <IntDir>$(SolutionDir)bin\$(Configuration)\intermediate\</IntDir>
-    <LibraryPath>$(SolutionDir)dependencies\glew\lib\;$(SolutionDir)dependencies\glfw\lib\;$(LibraryPath)</LibraryPath>
+    <LibraryPath>$(SolutionDir)dependencies\devil\lib\;$(SolutionDir)dependencies\glew\lib\;$(SolutionDir)dependencies\glfw\lib\;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -59,7 +59,7 @@
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>opengl32.lib;glew32.lib;glfw3.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>opengl32.lib;glew32.lib;glfw3.lib;DevIL.lib;ILU.lib;ILUT.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -79,14 +79,19 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
-      <AdditionalDependencies>opengl32.lib;glew32.lib;glfw3.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>opengl32.lib;glew32.lib;glfw3.lib;DevIL.lib;ILU.lib;ILUT.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="src\graphics\group2d.cpp" />
+    <ClCompile Include="src\graphics\layer2d.cpp" />
     <ClCompile Include="src\graphics\renderer2d.cpp" />
     <ClCompile Include="src\graphics\shader.cpp" />
+    <ClCompile Include="src\graphics\simplelayer2d.cpp" />
     <ClCompile Include="src\graphics\sprite.cpp" />
+    <ClCompile Include="src\graphics\texture.cpp" />
+    <ClCompile Include="src\graphics\transformation.cpp" />
     <ClCompile Include="src\graphics\window.cpp" />
     <ClCompile Include="src\input\keyboard.cpp" />
     <ClCompile Include="src\input\mouse.cpp" />
@@ -98,9 +103,14 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\graphics\definitions.h" />
+    <ClInclude Include="src\graphics\group2d.h" />
+    <ClInclude Include="src\graphics\layer2d.h" />
     <ClInclude Include="src\graphics\renderer2d.h" />
     <ClInclude Include="src\graphics\shader.h" />
+    <ClInclude Include="src\graphics\simplelayer2d.h" />
     <ClInclude Include="src\graphics\sprite.h" />
+    <ClInclude Include="src\graphics\texture.h" />
+    <ClInclude Include="src\graphics\transformation.h" />
     <ClInclude Include="src\graphics\window.h" />
     <ClInclude Include="src\input\controller.h" />
     <ClInclude Include="src\input\keyboard.h" />

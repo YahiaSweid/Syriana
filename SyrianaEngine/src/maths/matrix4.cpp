@@ -37,7 +37,32 @@ namespace syriana{
 			return *this;
 		}
 
+		Vector3 Matrix4::Multiply(const Vector3& other){
+			return Vector3(
+				elements[0] * other.x + elements[4] * other.y + elements[8] * other.z + elements[12],
+				elements[1] * other.x + elements[5] * other.y + elements[9] * other.z + elements[13],
+				elements[2] * other.x + elements[6] * other.y + elements[10] * other.z + elements[14]
+			);
+		}
+
+		Vector4 Matrix4::Multiply(const Vector4& other){
+			return Vector4(
+				elements[0] * other.x + elements[4] * other.y + elements[8] * other.z + elements[12] * other.w,
+				elements[1] * other.x + elements[5] * other.y + elements[9] * other.z + elements[13] * other.w,
+				elements[2] * other.x + elements[6] * other.y + elements[10] * other.z + elements[14] * other.w,
+				elements[3] * other.x + elements[7] * other.y + elements[11] * other.z + elements[15] * other.w
+				);
+		}
+
 		Matrix4 operator*(Matrix4 left, const Matrix4& right){
+			return left.Multiply(right);
+		}
+
+		Vector3 operator*(Matrix4 left, const Vector3& right){
+			return left.Multiply(right);
+		}
+
+		Vector4 operator*(Matrix4 left, const Vector4& right){
 			return left.Multiply(right);
 		}
 

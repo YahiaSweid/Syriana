@@ -25,7 +25,9 @@ namespace syriana{
 
 			GLint GetUniformLocation(const GLchar* name);
 			void SetUniform1f(const GLchar* var, const GLfloat value);
+			void SetUniform1fv(const GLchar* var, const GLfloat* value, const int count);
 			void SetUniform1i(const GLchar* var, const GLint value);
+			void SetUniform1iv(const GLchar* var, const GLint* value, const int count);
 			void SetUniform2f(const GLchar* var, const Vector2& value);
 			void SetUniform3f(const GLchar* var, const Vector3& value);
 			void SetUniform4f(const GLchar* var, const Vector4& value);

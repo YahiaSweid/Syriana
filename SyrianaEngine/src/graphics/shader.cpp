@@ -74,8 +74,14 @@ namespace syriana{
 		void Shader::SetUniform1f(const GLchar* var, const GLfloat value) {
 			glUniform1f(GetUniformLocation(var), value);
 		}
+		void Shader::SetUniform1fv(const GLchar* var, const GLfloat* value, const int count){
+			glUniform1fv(GetUniformLocation(var), count, value);
+		}
 		void Shader::SetUniform1i(const GLchar* var, const GLint value){
 			glUniform1i(GetUniformLocation(var), value);
+		}
+		void Shader::SetUniform1iv(const GLchar* var, const GLint* value, const int count){
+			glUniform1iv(GetUniformLocation(var), count, value);
 		}
 		void Shader::SetUniform2f(const GLchar* var, const maths::Vector2& value){
 			glUniform2f(GetUniformLocation(var), value.x, value.y);

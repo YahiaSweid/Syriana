@@ -22,6 +22,7 @@ namespace syriana{
 			CenterTheWindow();
 
 			InitGlew();
+			InitDevIL();
 		}
 
 		Window::~Window(){
@@ -55,6 +56,13 @@ namespace syriana{
 			std::cout << "OpenGL " << glGetString(GL_VERSION) << std::endl;
 			std::cout << "Shading Language " << glGetString(GL_SHADING_LANGUAGE_VERSION) << std::endl;
 			std::cout << "Renderer " << glGetString(GL_RENDERER) << std::endl;
+		}
+
+		void Window::InitDevIL(){
+			ilInit();
+			iluInit();
+			ilutInit();
+			ilutRenderer(ILUT_OPENGL);
 		}
 
 		void Window::WindowCallbacks(){

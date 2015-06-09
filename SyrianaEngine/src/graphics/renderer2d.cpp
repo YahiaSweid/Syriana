@@ -4,7 +4,6 @@
 namespace syriana{
 	namespace graphics{
 
-
 		Renderer2D::Renderer2D()
 			: m_IndicesCount(0) {
 			glGenVertexArrays(1, &m_Array);
@@ -21,6 +20,12 @@ namespace syriana{
 
 					glEnableVertexAttribArray(DEF_VERTEX_POSITION_INDEX);
 					glVertexAttribPointer(DEF_VERTEX_POSITION_INDEX, 3, GL_FLOAT, GL_FALSE, DEF_VERTEX_SIZE, 0);
+
+					glEnableVertexAttribArray(DEF_VERTEX_UVS_INDEX);
+					glVertexAttribPointer(DEF_VERTEX_UVS_INDEX, 2, GL_FLOAT, GL_FALSE, DEF_VERTEX_SIZE, (void*)offsetof(BufferData, uvs));
+
+					glEnableVertexAttribArray(DEF_VERTEX_TEXID_INDEX);
+					glVertexAttribPointer(DEF_VERTEX_TEXID_INDEX, 1, GL_FLOAT, GL_FALSE, DEF_VERTEX_SIZE, (void*)offsetof(BufferData, texid));
 
 					glEnableVertexAttribArray(DEF_VERTEX_COLOR_INDEX);
 					glVertexAttribPointer(DEF_VERTEX_COLOR_INDEX, 4, GL_FLOAT, GL_FALSE, DEF_VERTEX_SIZE, (void*)offsetof(BufferData, color));
@@ -64,19 +69,51 @@ namespace syriana{
 		}
 
 		void Renderer2D::Push(Sprite* sprite){
-			m_BufferData->position = sprite->position;
+			m_TexID = sprite->GetTexID();
+			m_TexIndex = 0;
+			m_TexFound = false;
+			if (m_TexID > 0){
+				for (int i = 0; i < m_TexIDs.size(); i++){
+					if (m_TexIDs[i] == m_TexID){
+						m_TexIndex = i + 1;
+						m_TexFound = true;
+						break;
+					}
+				}
+
+				if (!m_TexFound){
+					if (m_TexIDs.size() >= 32){
+						this->End();
+						this->Render();
+						this->Prepare();
+					}
+
+					m_TexIDs.push_back(m_TexID);
+					m_TexIndex = m_TexIDs.size();
+				}
+			}
+
+			m_BufferData->position = *m_TransformationBack * sprite->position;
+			m_BufferData->uvs = sprite->uvs[0];
+			m_BufferData->texid = m_TexIndex;
 			m_BufferData->color = sprite->color;
 			m_BufferData++;
 
-			m_BufferData->position = Vector3(sprite->position.x + sprite->size.x, sprite->position.y, sprite->position.z);
+			m_BufferData->position = *m_TransformationBack * Vector3(sprite->position.x + sprite->size.x, sprite->position.y, sprite->position.z);
+			m_BufferData->uvs = sprite->uvs[1];
+			m_BufferData->texid = m_TexIndex;
 			m_BufferData->color = sprite->color;
 			m_BufferData++;
 
-			m_BufferData->position = Vector3(sprite->position.x + sprite->size.x, sprite->position.y + sprite->size.y, sprite->position.z);;
+			m_BufferData->position = *m_TransformationBack * Vector3(sprite->position.x + sprite->size.x, sprite->position.y + sprite->size.y, sprite->position.z);;
+			m_BufferData->uvs = sprite->uvs[2];
+			m_BufferData->texid = m_TexIndex;
 			m_BufferData->color = sprite->color;
 			m_BufferData++;
 
-			m_BufferData->position = Vector3(sprite->position.x, sprite->position.y + sprite->size.y, sprite->position.z);;
+			m_BufferData->position = *m_TransformationBack * Vector3(sprite->position.x, sprite->position.y + sprite->size.y, sprite->position.z);;
+			m_BufferData->uvs = sprite->uvs[3];
+			m_BufferData->texid = m_TexIndex;
 			m_BufferData->color = sprite->color;
 			m_BufferData++;
 
@@ -89,6 +126,10 @@ namespace syriana{
 		}
 
 		void Renderer2D::Render(){
+			for (int i = 0; i < m_TexIDs.size(); i++){
+				glActiveTexture(GL_TEXTURE0 + i);
+				glBindTexture(GL_TEXTURE_2D, m_TexIDs[i]);
+			}
 			glBindVertexArray(m_Array);
 			glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, m_IndexBuffer);
 			glDrawElements(GL_TRIANGLES, m_IndicesCount, GL_UNSIGNED_INT, NULL);

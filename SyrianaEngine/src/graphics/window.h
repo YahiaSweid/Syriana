@@ -2,6 +2,9 @@
 
 #include <GL\glew.h>
 #include <GLFW\glfw3.h>
+#include <IL\il.h>
+#include <IL\ilut.h>
+
 #include "../input/keyboard.h"
 #include "../input/mouse.h"
 
@@ -26,6 +29,7 @@ namespace syriana{
 
 		private:
 			void InitGlew();
+			void InitDevIL();
 			void WindowCallbacks();
 			void CenterTheWindow();
 
